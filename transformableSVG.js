@@ -23,7 +23,7 @@ function TransformableSVG(body, width, height, scaleInterval) {
 	function transformGroup() {
 		transformationGroup.attr("transform", "scale("+scale+") translate("+translate.x+", "+translate.y+")");
 
-		self.transformAction();
+		self.transformAction(scale, translate);
 	}
 
 	transformGroup();
