@@ -17,8 +17,13 @@ function TransformableSVG(body, width, height, scaleInterval) {
 
 	var transformationGroup = svg.append("g");
 
+	self.transformAction = function() {
+	};
+
 	function transformGroup() {
 		transformationGroup.attr("transform", "scale("+scale+") translate("+translate.x+", "+translate.y+")");
+
+		self.transformAction();
 	}
 
 	transformGroup();
@@ -67,5 +72,8 @@ function TransformableSVG(body, width, height, scaleInterval) {
 		translateCache.y = translate.y;
 	}
 
-	return transformationGroup;
+	self.getTransformationGroup = function() {
+		return transformationGroup;
+	};
+	return self;
 }
