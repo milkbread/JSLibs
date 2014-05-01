@@ -1,0 +1,43 @@
+<html>
+<head>
+	<title>Sidebar Template</title>
+	<script src="http://d3js.org/d3.v3.min.js"></script>
+	<script src="http://rawgithub.com/milkbread/JSLibs/master/sidebar.js"></script>
+	<link rel="stylesheet" href="http://rawgithub.com/milkbread/JSLibs/master/sidebar.css" />
+
+	<style type="text/css">
+		.mainContainer > div {
+			display: inline-block;
+			vertical-align: top;
+		}
+	</style>
+</head>
+<body>
+	<script type="text/javascript">
+
+	var container = d3.select("body").append("div").attr("class", "mainContainer");
+
+	var svg = container.append("svg")
+		.attr("width", 300 )
+		.attr("height", 100 );
+
+	var group = svg.append("g");
+
+	group.append("text")
+		.attr("x", 20 )
+		.attr("y", 20 )
+		.text( "This is a demonstration!" );
+
+	var groups = [
+		{	name: "demo",
+			description: "Show Text",
+			svgGroup: group,
+			visibility: "visible"}
+	];
+
+	var sidebarContainer = container.append("div").attr("id", "sidebarContainer");
+	var toolbar = new Toolbar(sidebarContainer, groups, "Show Elements");
+
+	</script>
+</body>
+</html>
