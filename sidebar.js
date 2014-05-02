@@ -26,6 +26,8 @@ function Toolbar(container, groups, heading_) {
 				.attr("visibility", function() {
 					return group.visibility;
 				});
+
+			if (typeof group.onchange !== "undefined") {group.onchange(group);}
 		})
 	toolbarElements.append("label")
 		.text(function(group) { return group.description; })
