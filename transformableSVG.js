@@ -1,6 +1,6 @@
-function TransformableSVG(body, width, height, scaleInterval) {
+function TransformableSVG(body, width, height, scaleInterval, initialScale) {
 	var self = this,
-		scale = 1,
+		scale = (typeof initialScale !== "undefined" ? initialScale : 1),
 		translate = {x: 0, y: 0},
 		translateCache = {x: 0, y: 0};
 	self.scaleInterval = (typeof scaleInterval !== "undefined" ? scaleInterval : .1)
