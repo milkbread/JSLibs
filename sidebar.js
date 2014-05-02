@@ -10,6 +10,13 @@ function Toolbar(container, groups, heading_) {
 		.data(groups)
 		.enter().append("div");
 
+	// run the onchange-function initially
+	groups.forEach(function(group) {
+		if (typeof group.onchange !== "undefined" && group.visibility === "visible") {
+			group.onchange(group);
+		}
+	});
+
 	toolbarElements.append("input")
 		.attr("type", "checkbox")
 		.attr("id", function(group) { return group.name; })
