@@ -48,6 +48,15 @@ function Toolbar(container, groups, heading_) {
 				});
 		})
 	}
+	self.hideGroup = function(id) {
+		groups[id].visibility = "hidden";
+		toolbarElements.select("input")
+			.attr("visibility", function(group) {
+				return group.visibility;
+			})
+			.property("checked", function(group) {return group.visibility === "visible" ? true : false;});
+	}
+
 	self.initGroupVisibility();
 }
 
