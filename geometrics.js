@@ -11,3 +11,14 @@ function pointInTriangle(p, a,b,c) {
 
 	return true;
 }
+
+function getExtentOfTriangle(triangle) {
+	var extent = [Infinity, Infinity, -Infinity, -Infinity]; // minx, miny, maxx, maxy
+	triangle.forEach(function(p) {
+		if(p[0]<extent[0]) extent[0] = p[0];
+		if(p[1]<extent[1]) extent[1] = p[1];
+		if(p[0]>extent[2]) extent[2] = p[0];
+		if(p[1]>extent[3]) extent[3] = p[1];
+	});
+	return extent;
+}
