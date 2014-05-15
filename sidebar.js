@@ -69,7 +69,7 @@ function Selector(container, heading_) {
 	self.selector.append("h1").attr("class", "selectorhead").text(heading);
 
 	self.selectedID = function() {
-		return self.select.property("value");
+		return parseInt(self.select.property("value"));
 	}
 
 	self.setSelectedID = function(id) {
